@@ -23,3 +23,12 @@ jobs:
       - name: Now it is
         run: |
           echo ${{ github.repositoryUrl }}
+      - name: Deployment success
+        uses: rjstone/discord-webhook-notify@v1
+        with:
+          severity: info
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          avatarUrl: ${{ github.event.sender.avatar_url }}
+          description: to https://calm-wildwood-40210.herokuapp.com/ by ${{ github.event.head_commit.author.username }}
+          details: ""
+          text: A new version of Pokedex deployed
