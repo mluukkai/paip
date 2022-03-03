@@ -14,7 +14,7 @@ jobs:
           echo "Hello World!"
       - name: gihub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github.repository) }}
+          GITHUB_CONTEXT: ${{ toJson(github.event.sender.avatar_url) }}
         run: echo "$GITHUB_CONTEXT"
       - name: gihub context
         env:
