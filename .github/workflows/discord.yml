@@ -18,6 +18,9 @@ jobs:
       - name: Directory content
         run: |
           ls -la
-      - name: context
-        run: |
-          echo ${{ github.event_name }}
+    - name: Test Success
+        uses: rjstone/discord-webhook-notify@v1
+        with:
+            severity: info
+            details: Test Succeeded!
+            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
