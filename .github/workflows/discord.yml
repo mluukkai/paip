@@ -21,7 +21,7 @@ jobs:
           severity: info
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: This is a custom description.
-          details: <a href='https://calm-wildwood-40210.herokuapp.com/'>https://calm-wildwood-40210.herokuapp.com/</a>
+          description: to https://calm-wildwood-40210.herokuapp.com/ by ${{ github.head_commit.author.username }}
+          details: ""
           footer: This is a footer.
           text: A new version deployed
