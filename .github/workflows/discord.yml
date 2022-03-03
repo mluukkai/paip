@@ -18,9 +18,9 @@ jobs:
       - name: Directory content
         run: |
           ls -la
-    - name: Test Success
+      - name: Test Success
         uses: rjstone/discord-webhook-notify@v1
         with:
-            severity: info
-            details: Test Succeeded!
-            webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+          severity: info
+          details: Test Succeeded!
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
