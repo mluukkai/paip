@@ -12,16 +12,10 @@ jobs:
       - name: Say hello
         run: |
           echo "Hello World!"
+      - name: gihub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
       - name: Now it is
         run: |
-          date
-      - name: Test Success
-        uses: rjstone/discord-webhook-notify@v1
-        with:
-          severity: info
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
-          avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
-          description: to https://calm-wildwood-40210.herokuapp.com/ by ${{ github.head_commit.author.username }}
-          details: ""
-          footer: This is a footer.
-          text: A new version deployed
+          echo ${{ github.repositoryUrl }}
