@@ -18,19 +18,18 @@ jobs:
         run: echo "$GITHUB_CONTEXT"
       - name: gihub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github.event.head_commit) }}
+          GITHUB_CONTEXT: ${{ toJson(github.event.head_commit.url) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Now it is
         run: |
           echo ${{ github.repositoryUrl }}
       - name: Deployment success
-        if: ${{ failure() }}
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: error
           color: "#ff0000"
           webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           avatarUrl: ${{ github.event.sender.avatar_url }}
-          description: ${{ github.event.head_commit.author.username }}
+          description: commit ${{ github.event.head_commit.url }} by ${{ github.event.head_commit.author.username }} broke the build :(
           details: ""
           text: Build failed
