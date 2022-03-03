@@ -15,16 +15,13 @@ jobs:
       - name: Now it is
         run: |
           date
-      - name: Directory content
-        run: |
-          echo ${{ toJson(github) }}
       - name: Test Success
         uses: rjstone/discord-webhook-notify@v1
         with:
           severity: info
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
           avatarUrl: https://github.githubassets.com/images/modules/logos_page/Octocat.png
           description: This is a custom description.
           details: <a href='https://calm-wildwood-40210.herokuapp.com/'>https://calm-wildwood-40210.herokuapp.com/</a>
           footer: This is a footer.
           text: A new version deployed
-          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
