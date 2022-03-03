@@ -14,11 +14,11 @@ jobs:
           echo "Hello World!"
       - name: gihub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          GITHUB_CONTEXT: ${{ toJson(github.repository) }}
         run: echo "$GITHUB_CONTEXT"
       - name: gihub context
         env:
-          GITHUB_CONTEXT: ${{ toJson(github.event) }}
+          GITHUB_CONTEXT: ${{ toJson(github.event.head_commit.author.username) }}
         run: echo "$GITHUB_CONTEXT"
       - name: Now it is
         run: |
